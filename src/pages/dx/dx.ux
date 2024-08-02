@@ -1,0 +1,41 @@
+<template>
+    <div class="page">
+        <text class="title">「御神签」</text>
+        <text class="head">—大凶—</text>
+        <text class="body">内心空落落的一天。</text>
+        <text class="body">可能会陷入深深的无力感之中。很多事情都无法理清头绪，过于钻牛角尖则易生病。虽然一切皆陷于低潮谷底中，但也不必因此而气馁。若能撑过一时困境，他日必另有一番作为。</text>
+        <input class="button" type="button" value="返回" onclick="routeDetail"></input>
+    </div>
+</template>
+
+<script>
+import router from "@system.router"
+
+export default {
+    routeDetail() {
+        router.push({
+            uri: "/pages/index"
+        })
+    }
+}
+</script>
+
+<style>
+.title .head .body {
+    font-size: 20px;
+    color: #000000;
+}
+.button {
+    width: 100px;
+    height: 35px;
+    margin-top: 10px;
+    font-size: 25px;
+    background-color: #f9edc0;
+}
+.page {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fbf6ec;
+}
+</style>

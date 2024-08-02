@@ -1,0 +1,105 @@
+<template>
+  <div class="bg" @swipe="exit">
+    <!--签筒-->
+    <div class="page">
+      <image src="/common/info.png" @click="openab()"style="position: absolute; left: 76px; top: 19px" />
+      <image-animator class="animator" id="animator" images="{{frames}}" duration="40ms" onclick="routeDetail"/>
+      <text class="text">点击签筒</text>
+      <text class="text">开始抽签</text>
+    </div>
+    <!--关于-->
+    <scroll class="bg" if="{{ab}}" onclick="exit('e')">
+      <image src="/common/about.png" />
+    </scroll>
+  </div>
+</template>
+
+<script>
+import router from "@system.router"
+
+export default {
+  data: {
+    frames: [
+      {
+        src: "/common/tong/1.png",
+      },
+      {
+        src: "/common/tong/2.png",
+      },
+      {
+        src: "/common/tong/3.png",
+      },
+      {
+        src: "/common/tong/4.png",
+      },
+      {
+        src: "/common/tong/3.png",
+      },
+      {
+        src: "/common/tong/2.png",
+      },
+      {
+        src: "/common/tong/1.png",
+      },
+      {
+        src: "/common/tong/5.png",
+      },
+      {
+        src: "/common/tong/6.png",
+      },
+      {
+        src: "/common/tong/7.png",
+      },
+      {
+        src: "/common/tong/6.png",
+      },
+      {
+        src: "/common/tong/5.png",
+      },
+      {
+        src: "/common/tong/1.png",
+      },
+    ],
+    ab:false,
+  },
+  routeDetail() {
+    setTimeout(() => {this.$element('animator').start();}, 80);
+    setTimeout(() => {router.push({uri: "/pages/detail"});}, 1300);
+  },
+  exit(a) {
+    if(a.direction=='right'||a=="e"){
+      if(this.ab)this.ab=false
+      else this.$app.exit()
+    }
+  },
+  openab(){
+    this.ab=true
+  },
+}
+
+</script>
+
+<style>
+.animator {
+  width: 140px;
+  height: 200px;
+}
+.bg{
+  position: absolute;
+  background-color: #fbf6ec;
+}
+.page {
+  width: 192px;
+  height: 490px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fbf6ec;
+}
+
+.text {
+  font-size: 30px;
+  color: #000000;
+}
+</style>

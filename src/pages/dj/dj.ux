@@ -1,0 +1,46 @@
+<template>
+    <div class="page">
+        <text class="title">「御神签」</text>
+        <text class="head">—大吉—</text>
+        <text class="body">浮云散尽月当空,</text>
+        <text class="body">逢此签者皆为上吉。</text>
+        <text class="body">明镜在心清如许,</text>
+        <text class="body">所求之事心想则成。</text>
+        <text class="body">合适顺心而为的一天</text>
+        <text class="body">不管是想做的事情,</text>
+        <text class="body">还是想见的人,现在是行动起来的好时机。</text>
+        <input class="button" type="button" value="返回" onclick="routeDetail"></input>
+    </div>
+</template>
+
+<script>
+import router from "@system.router"
+
+export default {
+    routeDetail() {
+        router.push({
+            uri: "/pages/index"
+        })
+    }
+}
+</script>
+
+<style>
+.title .head .body {
+    font-size: 20px;
+    color: #000000;
+}
+.button {
+    width: 100px;
+    height: 35px;
+    margin-top: 10px;
+    font-size: 25px;
+    background-color: #f9edc0;
+}
+.page {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fbf6ec;
+}
+</style>
