@@ -1,1 +1,2 @@
-小米手环9抽签小程序
+#how to build?
+follow https://iot.mi.com/vela/quickapp
