@@ -1,9 +1,9 @@
 {
   "package": "com.liuyuze61.sortition",
   "name": "环间抽签",
-  "versionName": "1.1.1",
+  "versionName": "1.2.0",
   "versionCode": 1,
-  "minPlatformVersion": 1002,
+  "minPlatformVersion": 1003,
   "icon": "/common/logo.png",
   "deviceTypeList": [
     "watch"
