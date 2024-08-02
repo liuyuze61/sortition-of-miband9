@@ -3,7 +3,7 @@
     <!--签筒-->
     <div class="page">
       <image src="/common/info.png" @click="openab()"style="position: absolute; left: 76px; top: 19px" />
-      <image-animator class="animator" id="animator" images="{{frames}}" duration="40ms" onclick="routeDetail"/>
+      <image-animator class="animator" id="animator" images="{{frames}}" duration="30ms" onclick="routeDetail"/>
       <text class="text">点击签筒</text>
       <text class="text">开始抽签</text>
     </div>
@@ -63,8 +63,8 @@ export default {
     ab:false,
   },
   routeDetail() {
-    setTimeout(() => {this.$element('animator').start();}, 80);
-    setTimeout(() => {router.push({uri: "/pages/detail"});}, 1300);
+    setTimeout(() => {this.$element('animator').start();}, 30);
+    setTimeout(() => {router.push({uri: "/pages/detail"});}, 900);
   },
   exit(a) {
     if(a.direction=='right'||a=="e"){
