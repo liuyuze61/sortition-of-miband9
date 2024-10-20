@@ -1,0 +1,55 @@
+<template>
+  <div class="page" onswipe="exit">
+    <image style="position: absolute;top:71px;left:72px;" src="/common/qz.png" onclick="routeDetail" />
+    <text class="title">成功抽到一只签快去解签吧</text>
+  </div>
+</template>
+
+<script>
+import router from "@system.router"
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+export default {
+  routeDetail() {
+    var i = getRandomInt(99)
+    if (i<=4) {
+      console.log(i)
+      router.push({uri: "/pages/dx"})
+    } else if (i<=14) {
+      console.log(i)
+      router.push({uri: "/pages/dj"})
+    } else if (i<=34) {
+      console.log(i)
+      router.push({uri: "/pages/x"})
+    } else {
+      console.log(i)
+      router.push({uri: "/pages/j"})
+    }
+  },
+  exit(a) {
+    if(a.direction=='right'){this.$app.exit()}
+  }
+}
+</script>
+
+<style>
+.page {
+  position: absolute;
+  width: 192px;
+  height: 490px;
+  background-color: #fff2c2;
+}
+
+.title {
+  position: absolute;
+  top:353px;
+  left:9px;
+  width: 175px;
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+  color: #000000;
+}
+</style>

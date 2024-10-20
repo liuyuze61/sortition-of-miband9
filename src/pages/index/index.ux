@@ -1,0 +1,84 @@
+<template>
+  <div class="bg" @swipe="exit">
+    <!--签筒-->
+    <div class="bg">
+      <image src="/common/info.png" @click="tbAbout('e')" style="position: absolute; left: 76px; top: 20px" />
+      <image src="/common/qz1.png" style="position: absolute;left: 64px;top: {{qz1}}px;" />
+      <image src="/common/tong.png" @click="toDetail()" style="position: absolute;left: 46px;top: 160px;transform: rotate({{angle}}deg);transform-origin:50px 100px;" />
+      <text class="text">点击签筒开始抽签</text>
+    </div>
+    <!--关于-->
+    <scroll class="page" if="{{about}}" @swipe="tbAbout">
+      <image src="/common/about.png" />
+      <image src="/common/back.png" @click="tbAbout('e')" style="position: absolute; left: 45px; top: 6px" />
+    </scroll>
+  </div>
+</template>
+
+<script>
+import router from "@system.router";
+
+export default {
+  data: {
+    qz1:180,
+    angle: 0,
+    donghua1:0,
+    about:false,
+  },
+  toDetail() {
+    if(this.donghua1!=1){
+      this.donghua1=1
+      this.donghua()
+      setTimeout(() => {
+        this.donghua1=0;
+        setInterval(() => {if(this.qz1>110){this.qz1-=4}}, 5);
+        setTimeout(() => {router.push({uri: "/pages/detail"});}, 500);
+      }, 900);
+    }
+  },
+  donghua(){
+        let i = setInterval(() => {if(this.angle<5){this.angle++}}, 20);
+        setTimeout(() => {
+            clearInterval(i);
+            let a = setInterval(() => {if(this.angle>-5){this.angle--}}, 20);
+            setTimeout(() => {
+              clearInterval(a);
+              if(this.donghua1==1){this.donghua()}
+              else{this.angle=0}
+            },200);
+        },200)
+    },
+  exit(a) {
+    if(a.direction=='right'){this.$app.exit()}
+  },
+  tbAbout(a){
+    if(a.direction=='right'||a=='e'){this.about=!this.about}
+  },
+}
+
+</script>
+
+<style>
+.bg{
+  position: absolute;
+  width: 192px;
+  height: 490px;
+  background-color: #fff2c2;
+}
+.page {
+  position: absolute;
+  width: 192px;
+  height: 490px;
+  background-color: #000000;
+}
+.text{
+  position: absolute;
+  font-size: 25px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  width: 100px;
+  left:46px;
+  top:380px;
+}
+</style>

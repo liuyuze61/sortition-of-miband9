@@ -1,0 +1,30 @@
+<template>
+    <div class="page" @swipe="back">
+        <text class="title">「御神签」</text>
+        <text class="head">—凶—</text>
+        <text class="body">珍惜的东西可能会遗失，需要小心。如果身体有不适，一定要注意休息。在做出决定之前，一定要再三思考。</text>
+    </div>
+</template>
+
+<script>
+import router from "@system.router"
+
+export default {
+    back(a) {
+        if(a.direction=='right'){router.push({uri: "/pages/index"})}
+    }
+}
+</script>
+
+<style>
+.title .head .body {
+    font-size: 22px;
+    color: #000000;
+}
+.page {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff2c2;
+}
+</style>
